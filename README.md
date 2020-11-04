@@ -1,1 +1,1 @@
-# Watershed-Stream-Delineation-Tool
+# Watershed & Stream Delineation Tool
