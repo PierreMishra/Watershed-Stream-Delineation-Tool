@@ -3,13 +3,13 @@
   "version" : "2.6.0",
   "build" : 24783,
   "layers" : [
-    "CIMPATH=map/feature_stream_clipped.xml"
+    "CIMPATH=Map/bb3b1ace1bb640fb9a2a4ddf474fa72d.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
       "name" : "feature_stream_clipped",
-      "uRI" : "CIMPATH=map/feature_stream_clipped.xml",
+      "uRI" : "CIMPATH=Map/bb3b1ace1bb640fb9a2a4ddf474fa72d.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -39,7 +39,7 @@
           "type" : "CIMStandardDataConnection",
           "workspaceConnectionString" : "DATABASE=..\\scratch",
           "workspaceFactory" : "Shapefile",
-          "dataset" : "feature_stream_clipped.shp",
+          "dataset" : "feature_stream_clipped",
           "datasetType" : "esriDTFeatureClass"
         },
         "studyAreaSpatialRel" : "esriSpatialRelUndefined",
@@ -279,12 +279,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 0.10000000000000001,
+                    "width" : 0.10000000000000002,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        190,
-                        232,
+                        115,
+                        178,
                         255,
                         100
                       ]
@@ -311,12 +311,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 0.67999999999999994,
+                    "width" : 0.47999999999999998,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        190,
-                        232,
+                        115,
+                        178,
                         255,
                         100
                       ]
@@ -343,12 +343,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 1.2599999999999998,
+                    "width" : 0.85999999999999999,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        190,
-                        232,
+                        115,
+                        178,
                         255,
                         100
                       ]
@@ -375,12 +375,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 1.8399999999999999,
+                    "width" : 1.24,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        190,
-                        232,
+                        115,
+                        178,
                         255,
                         100
                       ]
@@ -407,12 +407,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 3,
+                    "width" : 2,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        190,
-                        232,
+                        115,
+                        178,
                         255,
                         100
                       ]
@@ -527,10 +527,7 @@
         "exclusionSymbolPatch" : "Default"
       },
       "scaleSymbols" : true,
-      "snappable" : true,
-      "symbolLayerDrawing" : {
-        "type" : "CIMSymbolLayerDrawing"
-      }
+      "snappable" : true
     }
   ],
   "elevationSurfaces" : [

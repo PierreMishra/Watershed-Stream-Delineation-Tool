@@ -3,16 +3,17 @@
   "version" : "2.6.0",
   "build" : 24783,
   "layers" : [
-    "CIMPATH=map/watershed_polygon.xml"
+    "CIMPATH=Map/2782737f407b468cb5e79ba4ff188418.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
       "name" : "watershed_polygon",
-      "uRI" : "CIMPATH=map/watershed_polygon.xml",
+      "uRI" : "CIMPATH=Map/2782737f407b468cb5e79ba4ff188418.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
+      "metadataURI" : "CIMPATH=Metadata/e26e2f1982901f259e792f79b67e73fa.xml",
       "useSourceMetadata" : true,
       "description" : "watershed_polygon",
       "layerElevation" : {
@@ -35,11 +36,12 @@
         "type" : "CIMFeatureTable",
         "displayField" : "Id",
         "editable" : true,
+        "selectionSetURI" : "CIMPATH=SelectionSet/fe893791d0656b45a3ea4fb785061ec2.dat",
         "dataConnection" : {
           "type" : "CIMStandardDataConnection",
           "workspaceConnectionString" : "DATABASE=..\\scratch",
           "workspaceFactory" : "Shapefile",
-          "dataset" : "watershed_polygon.shp",
+          "dataset" : "watershed_polygon",
           "datasetType" : "esriDTFeatureClass"
         },
         "studyAreaSpatialRel" : "esriSpatialRelUndefined",
@@ -260,9 +262,23 @@
         }
       ],
       "renderer" : {
-        "type" : "CIMSimpleRenderer",
-        "patch" : "Default",
-        "symbol" : {
+        "type" : "CIMUniqueValueRenderer",
+        "colorRamp" : {
+          "type" : "CIMRandomHSVColorRamp",
+          "colorSpace" : {
+            "type" : "CIMICCColorSpace",
+            "url" : "Default RGB"
+          },
+          "maxH" : 360,
+          "minS" : 15,
+          "maxS" : 30,
+          "minV" : 99,
+          "maxV" : 100,
+          "minAlpha" : 100,
+          "maxAlpha" : 100
+        },
+        "defaultLabel" : "<all other values>",
+        "defaultSymbol" : {
           "type" : "CIMSymbolReference",
           "symbol" : {
             "type" : "CIMPolygonSymbol",
@@ -291,19 +307,206 @@
                 "color" : {
                   "type" : "CIMRGBColor",
                   "values" : [
-                    68,
-                    101,
-                    137,
+                    130,
+                    130,
+                    130,
                     100
                   ]
                 }
               }
             ]
           }
-        }
+        },
+        "defaultSymbolPatch" : "Default",
+        "fields" : [
+          "gridcode"
+        ],
+        "groups" : [
+          {
+            "type" : "CIMUniqueValueGroup",
+            "classes" : [
+              {
+                "type" : "CIMUniqueValueClass",
+                "label" : "0",
+                "patch" : "Default",
+                "symbol" : {
+                  "type" : "CIMSymbolReference",
+                  "symbol" : {
+                    "type" : "CIMPolygonSymbol",
+                    "symbolLayers" : [
+                      {
+                        "type" : "CIMSolidStroke",
+                        "enable" : true,
+                        "capStyle" : "Round",
+                        "joinStyle" : "Round",
+                        "lineStyle3D" : "Strip",
+                        "miterLimit" : 10,
+                        "width" : 0.69999999999999996,
+                        "color" : {
+                          "type" : "CIMHSVColor",
+                          "values" : [
+                            246.56,
+                            26.75,
+                            99.790000000000006,
+                            100
+                          ]
+                        }
+                      },
+                      {
+                        "type" : "CIMSolidFill",
+                        "enable" : true,
+                        "color" : {
+                          "type" : "CIMHSVColor",
+                          "values" : [
+                            246.56,
+                            26.75,
+                            99.790000000000006,
+                            100
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "values" : [
+                  {
+                    "type" : "CIMUniqueValue",
+                    "fieldValues" : [
+                      "0"
+                    ]
+                  }
+                ],
+                "visible" : true
+              },
+              {
+                "type" : "CIMUniqueValueClass",
+                "label" : "1",
+                "patch" : "Default",
+                "symbol" : {
+                  "type" : "CIMSymbolReference",
+                  "symbol" : {
+                    "type" : "CIMPolygonSymbol",
+                    "symbolLayers" : [
+                      {
+                        "type" : "CIMSolidStroke",
+                        "enable" : true,
+                        "capStyle" : "Round",
+                        "joinStyle" : "Round",
+                        "lineStyle3D" : "Strip",
+                        "miterLimit" : 10,
+                        "width" : 0.69999999999999996,
+                        "color" : {
+                          "type" : "CIMHSVColor",
+                          "values" : [
+                            97.719999999999999,
+                            29.440000000000001,
+                            99.959999999999994,
+                            100
+                          ]
+                        }
+                      },
+                      {
+                        "type" : "CIMSolidFill",
+                        "enable" : true,
+                        "color" : {
+                          "type" : "CIMHSVColor",
+                          "values" : [
+                            97.719999999999999,
+                            29.440000000000001,
+                            99.959999999999994,
+                            100
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "values" : [
+                  {
+                    "type" : "CIMUniqueValue",
+                    "fieldValues" : [
+                      "1"
+                    ]
+                  }
+                ],
+                "visible" : true
+              },
+              {
+                "type" : "CIMUniqueValueClass",
+                "label" : "2",
+                "patch" : "Default",
+                "symbol" : {
+                  "type" : "CIMSymbolReference",
+                  "symbol" : {
+                    "type" : "CIMPolygonSymbol",
+                    "symbolLayers" : [
+                      {
+                        "type" : "CIMSolidStroke",
+                        "enable" : true,
+                        "capStyle" : "Round",
+                        "joinStyle" : "Round",
+                        "lineStyle3D" : "Strip",
+                        "miterLimit" : 10,
+                        "width" : 0.69999999999999996,
+                        "color" : {
+                          "type" : "CIMHSVColor",
+                          "values" : [
+                            11.029999999999999,
+                            28.629999999999999,
+                            99.420000000000002,
+                            100
+                          ]
+                        }
+                      },
+                      {
+                        "type" : "CIMSolidFill",
+                        "enable" : true,
+                        "color" : {
+                          "type" : "CIMHSVColor",
+                          "values" : [
+                            11.029999999999999,
+                            28.629999999999999,
+                            99.420000000000002,
+                            100
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "values" : [
+                  {
+                    "type" : "CIMUniqueValue",
+                    "fieldValues" : [
+                      "2"
+                    ]
+                  }
+                ],
+                "visible" : true
+              }
+            ],
+            "heading" : "gridcode"
+          }
+        ],
+        "polygonSymbolColorTarget" : "FillOutline"
       },
       "scaleSymbols" : true,
-      "snappable" : true
+      "snappable" : true,
+      "symbolLayerDrawing" : {
+        "type" : "CIMSymbolLayerDrawing"
+      }
+    }
+  ],
+  "binaryReferences" : [
+    {
+      "type" : "CIMBinaryReference",
+      "uRI" : "CIMPATH=Metadata/e26e2f1982901f259e792f79b67e73fa.xml",
+      "data" : "<?xml version=\"1.0\"?>\r\n<metadata xml:lang=\"en\"><Esri><CreaDate>20201121</CreaDate><CreaTime>12524400</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce></Esri><dataIdInfo><idCitation><resTitle>watershed_polygon</resTitle></idCitation><idAbs>watershed_polygon</idAbs><idCredit></idCredit><idPurp></idPurp><resConst><Consts><useLimit></useLimit></Consts></resConst></dataIdInfo></metadata>\r\n"
+    },
+    {
+      "type" : "CIMBinaryReference",
+      "uRI" : "CIMPATH=SelectionSet/fe893791d0656b45a3ea4fb785061ec2.dat",
+      "data" : "CgMxLjAQARoDCgEw"
     }
   ],
   "elevationSurfaces" : [
