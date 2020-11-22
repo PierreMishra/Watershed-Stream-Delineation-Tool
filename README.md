@@ -1,6 +1,6 @@
 # Watershed & Stream Delineation Tool
 
-This tool allows a user to delineate watersheds and streams using Digital Elevation Model (DEM) raster(s) and outlet point(s) provided by as an input in ArcGIS pro. The tool is built on ArcPy module, an ESRI Python package to extend the functionalities of ArcGIS products. It is suitable for hydrologists, researchers and scientists working with watershed, hydrologic and engineering projects and studies.
+This tool allows a user to delineate watersheds and streams using Digital Elevation Model (DEM) raster(s) and outlet point(s) provided as an input in ArcGIS Pro. The tool is built on ArcPy module, an ESRI Python package to extend the functionalities of ArcGIS products. It is suitable for professionals such as hydrologists, researchers and consultants working on watershed modeling, hydrologic data analysis and/or civil engineering projects.
 
 There are two ways in which outlet(s) (pour points) can be provided to delineate watersheds and streams: 1) user can load their own shapefile containing point feature(s) or 2) user can select point(s) on any base map (for reference) using the pencil tool next to drop down button.  
 
@@ -16,7 +16,7 @@ Open `Watershed-Stream-Delineation.aprx`. From catalog pane expand `Watershed-St
 
 #### Elevation raster(s)
 
-Select a single or multiple Digital Elevation Model (DEM) raster(s) of the geographical area you are interested. Multiple rasters are automatically joined to create a single raster. DEMs should be located from your local drive and file path should not contain any spaces to avoid error. 
+Select a single or multiple Digital Elevation Model (DEM) raster(s) of the geographical area you are interested in. Multiple rasters are automatically joined to create a single raster. DEMs should be located from your local drive and file path should not contain any spaces to avoid error. 
 
 A few example DEMs are provided in the `data` folder for testing purpose. The folder `test_1` has a single DEM from an area in Wake County, NC. The folder `test_2` has 4 DEMs that geographically align next to each other. `test_2` files can be used to test inputting multiple rasters. 
 
@@ -25,7 +25,7 @@ More DEMs can be found at USGS's [National Map](https://viewer.nationalmap.gov/b
 
 #### Outlet(s)
 
-There are two ways to load outlet point(s) from where all the water flows out of the watershed . 
+An outlet, or a pour point, is a point through which the upstream water drains and flows out of the watershed. There are two ways to load outlet point(s):
 
 1. Load a shapefile containing point feature(s) from your local drive. Make sure the file path has no space characters. Ideally, move your shapefile to `data` folder in the `Watershed-Stream-Delineation-Tool` parent folder.
 
@@ -35,7 +35,7 @@ A few example shapefiles are provided in the `data` folder for testing purpose. 
 
 #### Aggregate watersheds?
 
-If multiple outlets are provided, user has a choice to join the watersheds pertaining to each outlet or keep them separate.
+If multiple outlets are provided, user has a choice to either join the watersheds pertaining to each outlet or keep them separate.
 
 If checked, this input will aggregate separate smaller watersheds into 1 big watershed. If left unchecked, all the watersheds will be kept separate as their own polygon features.
 
