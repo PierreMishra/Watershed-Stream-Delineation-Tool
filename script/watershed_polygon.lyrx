@@ -3,17 +3,16 @@
   "version" : "2.6.0",
   "build" : 24783,
   "layers" : [
-    "CIMPATH=Map/2782737f407b468cb5e79ba4ff188418.xml"
+    "CIMPATH=Map/7d6a8d4ad2264e27a0c44a80c79a4646.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
       "name" : "watershed_polygon",
-      "uRI" : "CIMPATH=Map/2782737f407b468cb5e79ba4ff188418.xml",
+      "uRI" : "CIMPATH=Map/7d6a8d4ad2264e27a0c44a80c79a4646.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
-      "metadataURI" : "CIMPATH=Metadata/e26e2f1982901f259e792f79b67e73fa.xml",
       "useSourceMetadata" : true,
       "description" : "watershed_polygon",
       "layerElevation" : {
@@ -36,10 +35,9 @@
         "type" : "CIMFeatureTable",
         "displayField" : "Id",
         "editable" : true,
-        "selectionSetURI" : "CIMPATH=SelectionSet/fe893791d0656b45a3ea4fb785061ec2.dat",
         "dataConnection" : {
           "type" : "CIMStandardDataConnection",
-          "workspaceConnectionString" : "DATABASE=..\\scratch",
+          "workspaceConnectionString" : "DATABASE=..\\.",
           "workspaceFactory" : "Shapefile",
           "dataset" : "watershed_polygon",
           "datasetType" : "esriDTFeatureClass"
@@ -315,7 +313,8 @@
                 }
               }
             ]
-          }
+          },
+          "symbolName" : "Level_1"
         },
         "defaultSymbolPatch" : "Default",
         "fields" : [
@@ -341,13 +340,13 @@
                         "joinStyle" : "Round",
                         "lineStyle3D" : "Strip",
                         "miterLimit" : 10,
-                        "width" : 0.69999999999999996,
+                        "width" : 1,
                         "color" : {
                           "type" : "CIMHSVColor",
                           "values" : [
-                            246.56,
-                            26.75,
-                            99.790000000000006,
+                            317.11000000000001,
+                            18.48,
+                            88.620000000000005,
                             100
                           ]
                         }
@@ -358,9 +357,9 @@
                         "color" : {
                           "type" : "CIMHSVColor",
                           "values" : [
-                            246.56,
-                            26.75,
-                            99.790000000000006,
+                            6.1200000000000001,
+                            17.199999999999999,
+                            99.269999999999996,
                             100
                           ]
                         }
@@ -394,13 +393,13 @@
                         "joinStyle" : "Round",
                         "lineStyle3D" : "Strip",
                         "miterLimit" : 10,
-                        "width" : 0.69999999999999996,
+                        "width" : 1,
                         "color" : {
-                          "type" : "CIMHSVColor",
+                          "type" : "CIMRGBColor",
                           "values" : [
-                            97.719999999999999,
-                            29.440000000000001,
-                            99.959999999999994,
+                            152,
+                            230,
+                            0,
                             100
                           ]
                         }
@@ -411,9 +410,9 @@
                         "color" : {
                           "type" : "CIMHSVColor",
                           "values" : [
-                            97.719999999999999,
-                            29.440000000000001,
-                            99.959999999999994,
+                            124.54000000000001,
+                            29.280000000000001,
+                            99.640000000000001,
                             100
                           ]
                         }
@@ -447,13 +446,13 @@
                         "joinStyle" : "Round",
                         "lineStyle3D" : "Strip",
                         "miterLimit" : 10,
-                        "width" : 0.69999999999999996,
+                        "width" : 1,
                         "color" : {
                           "type" : "CIMHSVColor",
                           "values" : [
-                            11.029999999999999,
-                            28.629999999999999,
-                            99.420000000000002,
+                            244.97999999999999,
+                            28.829999999999998,
+                            80.980000000000004,
                             100
                           ]
                         }
@@ -464,9 +463,9 @@
                         "color" : {
                           "type" : "CIMHSVColor",
                           "values" : [
-                            11.029999999999999,
-                            28.629999999999999,
-                            99.420000000000002,
+                            246.38999999999999,
+                            28.59,
+                            99.790000000000006,
                             100
                           ]
                         }
@@ -488,25 +487,10 @@
             "heading" : "gridcode"
           }
         ],
-        "polygonSymbolColorTarget" : "FillOutline"
+        "polygonSymbolColorTarget" : "Fill"
       },
       "scaleSymbols" : true,
-      "snappable" : true,
-      "symbolLayerDrawing" : {
-        "type" : "CIMSymbolLayerDrawing"
-      }
-    }
-  ],
-  "binaryReferences" : [
-    {
-      "type" : "CIMBinaryReference",
-      "uRI" : "CIMPATH=Metadata/e26e2f1982901f259e792f79b67e73fa.xml",
-      "data" : "<?xml version=\"1.0\"?>\r\n<metadata xml:lang=\"en\"><Esri><CreaDate>20201121</CreaDate><CreaTime>12524400</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce></Esri><dataIdInfo><idCitation><resTitle>watershed_polygon</resTitle></idCitation><idAbs>watershed_polygon</idAbs><idCredit></idCredit><idPurp></idPurp><resConst><Consts><useLimit></useLimit></Consts></resConst></dataIdInfo></metadata>\r\n"
-    },
-    {
-      "type" : "CIMBinaryReference",
-      "uRI" : "CIMPATH=SelectionSet/fe893791d0656b45a3ea4fb785061ec2.dat",
-      "data" : "CgMxLjAQARoDCgEw"
+      "snappable" : true
     }
   ],
   "elevationSurfaces" : [
