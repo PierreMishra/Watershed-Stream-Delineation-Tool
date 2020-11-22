@@ -36,7 +36,7 @@ else:
     first_raster_CRS = arcpy.Describe(first_raster).spatialReference.factoryCode
     
     # Arguments for Mosaic To New Raster geoprocessing tool
-    raster_location = f'{dir_name}\\data\\'
+    raster_location = f'{dir_name}\\scratch\\'
     file_name = "merged_raster.tif"
     pixel_type = "32_BIT_FLOAT"
     band_num = 1
