@@ -3,13 +3,13 @@
   "version" : "2.6.0",
   "build" : 24783,
   "layers" : [
-    "CIMPATH=map/outlet_projected.xml"
+    "CIMPATH=Map/92d72b12cd624c73b3e77b4c0e9560cf.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
       "name" : "outlet_projected",
-      "uRI" : "CIMPATH=map/outlet_projected.xml",
+      "uRI" : "CIMPATH=Map/92d72b12cd624c73b3e77b4c0e9560cf.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -57,7 +57,7 @@
           "type" : "CIMStandardDataConnection",
           "workspaceConnectionString" : "DATABASE=..\\scratch",
           "workspaceFactory" : "Shapefile",
-          "dataset" : "outlet_projected.shp",
+          "dataset" : "outlet_projected",
           "datasetType" : "esriDTFeatureClass"
         },
         "studyAreaSpatialRel" : "esriSpatialRelUndefined",
@@ -296,7 +296,7 @@
                 },
                 "anchorPointUnits" : "Relative",
                 "dominantSizeAxis3D" : "Z",
-                "size" : 8,
+                "size" : 6,
                 "billboardMode3D" : "FaceNearPlane",
                 "frame" : {
                   "xmin" : -2,
@@ -321,7 +321,7 @@
                                 2
                               ],
                               [
-                                2.1431318985078681e-16,
+                                6.3159390782460774e-16,
                                 0
                               ],
                               0,
@@ -341,7 +341,7 @@
                           "joinStyle" : "Round",
                           "lineStyle3D" : "Strip",
                           "miterLimit" : 10,
-                          "width" : 2.2857142857142856,
+                          "width" : 1.5,
                           "color" : {
                             "type" : "CIMRGBColor",
                             "values" : [

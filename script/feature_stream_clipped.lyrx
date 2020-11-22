@@ -3,13 +3,13 @@
   "version" : "2.6.0",
   "build" : 24783,
   "layers" : [
-    "CIMPATH=Map/bb3b1ace1bb640fb9a2a4ddf474fa72d.xml"
+    "CIMPATH=Map/60a12ae49ab64069a6b65266af6f0628.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
       "name" : "feature_stream_clipped",
-      "uRI" : "CIMPATH=Map/bb3b1ace1bb640fb9a2a4ddf474fa72d.xml",
+      "uRI" : "CIMPATH=Map/60a12ae49ab64069a6b65266af6f0628.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -283,8 +283,8 @@
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        115,
-                        178,
+                        0,
+                        112,
                         255,
                         100
                       ]
@@ -311,12 +311,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 0.47999999999999998,
+                    "width" : 0.48000000000000009,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        115,
-                        178,
+                        0,
+                        112,
                         255,
                         100
                       ]
@@ -343,12 +343,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 0.85999999999999999,
+                    "width" : 0.86000000000000021,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        115,
-                        178,
+                        0,
+                        112,
                         255,
                         100
                       ]
@@ -375,12 +375,12 @@
                     "joinStyle" : "Round",
                     "lineStyle3D" : "Strip",
                     "miterLimit" : 10,
-                    "width" : 1.24,
+                    "width" : 1.2400000000000002,
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        115,
-                        178,
+                        0,
+                        112,
                         255,
                         100
                       ]
@@ -411,8 +411,8 @@
                     "color" : {
                       "type" : "CIMRGBColor",
                       "values" : [
-                        115,
-                        178,
+                        0,
+                        112,
                         255,
                         100
                       ]

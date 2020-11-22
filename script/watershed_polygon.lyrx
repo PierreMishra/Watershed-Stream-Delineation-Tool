@@ -3,13 +3,13 @@
   "version" : "2.6.0",
   "build" : 24783,
   "layers" : [
-    "CIMPATH=Map/7d6a8d4ad2264e27a0c44a80c79a4646.xml"
+    "CIMPATH=Map/b3cbdddbba984e459a5484d5158271b4.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
       "name" : "watershed_polygon",
-      "uRI" : "CIMPATH=Map/7d6a8d4ad2264e27a0c44a80c79a4646.xml",
+      "uRI" : "CIMPATH=Map/b3cbdddbba984e459a5484d5158271b4.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
@@ -37,7 +37,7 @@
         "editable" : true,
         "dataConnection" : {
           "type" : "CIMStandardDataConnection",
-          "workspaceConnectionString" : "DATABASE=..\\.",
+          "workspaceConnectionString" : "DATABASE=..\\scratch",
           "workspaceFactory" : "Shapefile",
           "dataset" : "watershed_polygon",
           "datasetType" : "esriDTFeatureClass"
@@ -393,11 +393,11 @@
                         "joinStyle" : "Round",
                         "lineStyle3D" : "Strip",
                         "miterLimit" : 10,
-                        "width" : 1,
+                        "width" : 0.69999999999999996,
                         "color" : {
                           "type" : "CIMRGBColor",
                           "values" : [
-                            152,
+                            76,
                             230,
                             0,
                             100
