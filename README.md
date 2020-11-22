@@ -1,8 +1,12 @@
 # Watershed & Stream Delineation Tool
 
-This tool allows a user to delineate watersheds and streams based on Digital Elevation Model (DEM) raster(s) and outlet points as user input using ArcGIS pro. The tool is built on ArcPy module, an ESRI Python package to extend the functionalities of ArcGIS products. There are two ways in which outlet(s) (pour points) can be used to delineate watersheds and streams: 1) using ALL outlet(s) identified in the DEM raster automatically, 2) using specific outlet(s) defined by the user. To provide outlet(s), the user can use a shapefile containing point features or select point(s) on the map.    
+This tool allows a user to delineate watersheds and streams using Digital Elevation Model (DEM) raster(s) and outlet point(s) provided by a user input in ArcGIS pro. The tool is built on ArcPy module, an ESRI Python package to extend the functionalities of ArcGIS products. It is built for hydrologists, researchers and scientists who work with watershed modeling, hydrology and engineering projects.
+
+There are two ways in which outlet(s) (pour points) can be used to delineate watersheds and streams: 1) using ALL outlet(s) identified in the DEM raster automatically, 2) using specific outlet(s) defined by the user. To provide outlet(s), the user can use a shapefile containing point features or select point(s) on the map.    
 
 # How to use the tool?
+
+1. Open ```Watershed-Stream-Delineation.aprx``` and from catalog pane expand ```Watershed-Stream-Delineation.tbx``` under ```Toolboxes```. `hello`  
 
 ## Inputs
 
