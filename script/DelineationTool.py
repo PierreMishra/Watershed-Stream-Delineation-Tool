@@ -1,3 +1,5 @@
+# --------- Getting ready -----------#
+
 # Import modules
 import arcpy
 import numpy as np
@@ -18,6 +20,13 @@ arcpy.AddToDisplay = True
 scratch_folder = "scratch"
 workspace_folder = f'{dir_name}\\{scratch_folder}' 
 arcpy.env.workspace = workspace_folder
+
+# Store symbology layers for output features
+outlet_symbology = f'{dir_name}\\script\\outlet_projected.lyrx'
+watershed_symbology = f'{dir_name}\\script\\watershed_polygon.lyrx'
+stream_symbology = f'{dir_name}\\script\\feature_stream_clipped.lyrx'
+
+# --------- User Input and Pre-processing -----------#
 
 # DEM raster input by user 
 input_raster_locations = arcpy.GetParameterAsText(0)
@@ -49,6 +58,17 @@ else:
 raster_CRS = arcpy.Describe(input_raster).spatialReference.factoryCode
 arcpy.env.outputCoordinateSystem = raster_CRS # to avoid an error in the Fill process
 
+# Outlet shapefile input by user
+input_outlet = arcpy.GetParameterAsText(1)
+
+# Change CRS of outlet feature class to that of the first DEM
+arcpy.AddMessage("Changing spatial reference of outlet feature layer using DEM raster's Well-Known ID...")
+outlet_proj = arcpy.Project_management(input_outlet, "outlet_projected.shp", raster_CRS)
+arcpy.SetParameterAsText(7, outlet_proj)
+arcpy.SetParameterSymbology(7, outlet_symbology) #apply symbology
+
+# --------- Processing DEM(s) -----------#
+
 # Fill in sinks in DEM
 arcpy.AddMessage("Filling sinks in the DEM raster...")
 fill_raster = arcpy.sa.Fill(input_raster)
@@ -61,19 +81,13 @@ flow_direction = arcpy.sa.FlowDirection(fill_raster,"", "", "D8")
 arcpy.AddMessage("Generating flow accumulation based on flow direction...")
 flow_accumulation = arcpy.sa.FlowAccumulation(flow_direction)
 
-# Outlet shapefile input by user
-input_outlet = arcpy.GetParameterAsText(1)
-
-# Change CRS of outlet feature class to that of the first DEM
-arcpy.AddMessage("Changing spatial reference of outlet feature layer using DEM raster's Well-Known ID...")
-outlet_proj = arcpy.Project_management(input_outlet, "outlet_projected.shp", raster_CRS)
-arcpy.SetParameterAsText(7, outlet_proj)
+# --------- Processing Outlet(s) -----------#
 
 # If more than 1 outlet points are provided, ask user whether to aggregate watersheds into 1 polygon or keep them in separate polygons
 aggregate_watershed = arcpy.GetParameterAsText(2)
 
 # Add a new field to determine how to handle multiple watersheds from multiple outlets  
-arcpy.DeleteField_management(outlet_proj, "AggNum") #useful if the tool is run more than once
+arcpy.DeleteField_management(outlet_proj, "AggNum") #useful if the tool is ran more than once
 arcpy.AddField_management(outlet_proj, "AggNum", "SHORT") #add AggNum column to the attribute table
 field = ['AggNum']
 i = 0
@@ -110,6 +124,8 @@ input_outlet_snapped = arcpy.sa.SnapPourPoint(outlet_proj, flow_accumulation, sn
 # Delete the unique integer field we created in outlet points feature layer
 arcpy.DeleteField_management(outlet_proj, "AggNum")
 
+# --------- Output - Watershed -----------#
+
 # Delineate watershed based on snapped outlet point and flow direction rasters
 arcpy.AddMessage("Delineating watershed based on flow direction and snapped outlet(s)...")
 watershed_raster = arcpy.sa.Watershed(flow_direction, input_outlet_snapped)
@@ -118,6 +134,9 @@ watershed_raster = arcpy.sa.Watershed(flow_direction, input_outlet_snapped)
 arcpy.AddMessage("Converting watershed raster to polygon feature...")
 watershed_polygon = arcpy.RasterToPolygon_conversion(watershed_raster,"watershed_polygon.shp")
 arcpy.SetParameterAsText(5, watershed_polygon)
+arcpy.SetParameterSymbology(5, watershed_symbology) #apply symbology
+
+# --------- Output - Stream Network -----------#
 
 # Delineate stream network if x number of pixels run into 1 pixel for flow accumulation. User-specfied values
 arcpy.AddMessage("Delineating stream network based on user-specified inflow cells...")
@@ -137,13 +156,21 @@ stream_feature = arcpy.sa.StreamToFeature(stream_order, flow_direction, "feature
 arcpy.AddMessage("Clip stream network using watershed boundary...")
 stream_feature_clipped = arcpy.Clip_analysis(stream_feature, watershed_polygon, "feature_stream_clipped.shp")
 arcpy.SetParameterAsText(6, stream_feature_clipped)
+arcpy.SetParameterSymbology(6, stream_symbology) #apply symbology
 
-# Finished
+# --------- Finish -----------#
+
 arcpy.AddMessage("Watershed(s) and stream delineation finished!")
 
 
 
                         # ----- X ----- #
+
+
+
+
+
+
                         
                         
                         
@@ -179,6 +206,8 @@ arcpy.AddMessage("Watershed(s) and stream delineation finished!")
 #lm.addLayer(outlet_proj)
 
 # delete intermediary files?? ask user
+
+
 
 
 

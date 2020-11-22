@@ -6,9 +6,9 @@ There are two ways in which outlet(s) (pour points) can be provided to delineate
 
 # How to use the tool?
 
-Go to this [link](https://1drv.ms/u/s!Ak8N6yOD29xEqT4ax-ypDd4LoWWj?e=NgI3S1) to download the zipped ArcGIS Pro workspace. For users who are not interested in downloading the entire workspace, refer to the section `How to configure ArcGIS Pro to run the tool` below.   
+Go to this [link](https://1drv.ms/u/s!Ak8N6yOD29xEqT4ax-ypDd4LoWWj?e=NgI3S1) to download the zipped ArcGIS Pro workspace. For users who are not interested in downloading the entire workspace, refer to the section on `How to configure ArcGIS Pro to run the tool` below.   
 
-Open `Watershed-Stream-Delineation.aprx`. From catalog pane expand `Watershed-Stream-Delineation.tbx` under `Toolboxes`. Right click and select `New` -> `Script` and locate `DelineationTool.py` in the `script` folder. Once it is added, double click `Watershed Stream Delineation Tool`.  
+Open `Watershed-Stream-Delineation.aprx`. From the catalog pane expand `Watershed-Stream-Delineation.tbx` under `Toolboxes`. Right click on `Watershed Stream Delineation Tool`, select `Properties` and under `Script File`, make sure that the location is set to where the `DelineationTool.py` resides on your PC (`YourLocalDrive\YourFolder\Watershed-Stream-Delineation-Tool\script\DelineationTool.py`).
 
 ## Inputs
 
@@ -23,11 +23,11 @@ More DEMs can be found at USGS's [National Map](https://viewer.nationalmap.gov/b
 
 #### Outlet(s)
 
-An outlet, or a pour point, is a point through which the upstream water drains and flows out of the watershed. There are two ways to load outlet point(s):
+An outlet, or a pour point, is a point through which the upstream water drains and flows out of the watershed. ). There are two ways to load outlet point(s):
 
 1. Load a shapefile containing point feature(s) from your local drive. Make sure the file path has no space characters. Ideally, move your shapefile to `data` folder in the `Watershed-Stream-Delineation-Tool` parent directory.
 
-2. Use the pencil tool located next to the drop down button on the geoprocessing pane for this tool. *Note - Outlet(s) should be located near a stream of flow accumulation*
+2. Use the pencil tool located next to the drop down button on the geoprocessing pane for this tool. *Note - Outlet(s) should be located near a stream of flow accumulation and should lie within the extent of the DEM(s).*
 
 A few example shapefiles are provided in the `data` folder for testing purpose. The folder `test_1` has a shapefile with a single point feature located in Wake County, NC. The folder `test_2` has a shapefile with 3 point features. This can be used with inputting mutliple DEM rasters.
 
@@ -89,7 +89,13 @@ This section is for users who are only interested in using the .py script in the
 
 #### Script tool parameters
 
-Open the .aprx file. Right click on this tool in the catalog pane under `Toolboxes` and click on `Properties`. Click on the `Parameters` menu and specify the following parameters in the same order as below:
+* Open the .aprx file. Right click on on `Watershed-Stream-Delineation.tbx` in the catalog pane under `Toolboxes`. 
+
+* Select `New` -> `Script` and locate `DelineationTool.py` in the `script` folder. 
+
+* Once it is added, right click `Watershed Stream Delineation Tool`. Go to `Properties`, specify a `Name` and `Label` and check off `Store tool with relative path`. 
+
+* Then click on the `Parameters` menu and specify the following parameters in the same order as below:
 
 <img src="./doc/screenshots/parameters.PNG" align="center" height="100%" width="100%" > 
 
