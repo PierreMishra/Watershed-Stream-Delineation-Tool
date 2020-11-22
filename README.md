@@ -39,19 +39,19 @@ If checked, this input will aggregate separate smaller watersheds into 1 big wat
 
 If only 1 outlet point is provided, any input for this field will not affect the output.  
 
-#### Outlet Snap Sensitivity
+#### Outlet snap sensitivity
 
 Specify the distance, in map units, within which the outlet point will be snapped to the pixel with the highest flow accumulation. A default value of 50 units is set. Incrase the magnitude if you are uncertain about the proximity of your point fetures to a flowing stream.
 
-#### Stream Network Sensitivity
+#### Stream network sensitivity
 
 Specify the threshold of flow accumulation that makes up a stream. It is the number of pixels that should flow into 1 pixel to determine a raster of branches that represent the extent of a stream network. For instance, a value of 5000 for stream network sensitivity means that any cell in the flow accumulation raster having a value less than 5000 will not be a part of the delineated stream network. In other words, higher the sensitivity value, lower the branching of streams and lower the number of stream orders. 
 
-## Output
+## Outputs
 
 The tool outputs three feature layers.
 
-#### Watershed 
+#### Watershed(s) 
 
 This is a feature layer containing polygon(s) of drainage basin(s) that flow into user-specified outlet(s). The symbology layer applied to watershed polygons is provided in `script` folder named `watershed_polygon.lyrx`. If the layer contains more than 1 watershed polygon, `unique value` symbology was used to assign different colors to the delineated watersheds. 
 
@@ -59,7 +59,7 @@ This is a feature layer containing polygon(s) of drainage basin(s) that flow int
 
 This is the feature layer containing a polyline represention of the stream network. The symbology for this feature layer is located in the folder `script` named `stream_feature_clipped.lyrx`. It is a graduated symbol symbology using the `grid code` attribute which gives us the order of a stream. Higher the order of a stream, higher number of inflows from lower ordered stream flowing into it, and thicker the blue line representing the stream.
 
-#### Outlet
+#### Outlet(s)
 
 This is a layer containing point features. This is the same as the outlet point(s) provided by the user. Symbology is applied for better visualization. The symbology layer is located in the `script` folder named `outlet_project.lyrx`.
 
@@ -87,11 +87,11 @@ This section is for users who are only interested in using the .py script in the
 
 * Open and save the project's .aprx file in the parent folder. 
 
-#### Script Tool Parameters
+#### Script tool parameters
 
 Open the .aprx file. Right click on this tool in the catalog pane under `Toolboxes` and click on `Properties`. Click on the `Parameters` menu and specify the following parameters in the same order as below:
 
-<img src="./doc/parameters.PNG" align="center" height="100%" width="100%" > 
+<img src="./doc/screenshots/parameters.PNG" align="center" height="100%" width="100%" > 
 
 
 # How does the tool work?
@@ -124,6 +124,6 @@ Open the .aprx file. Right click on this tool in the catalog pane under `Toolbox
 
 # Notes
 
-Depending on the raster size and your PC performance, it takes anywhere from 2-7 minutes for the tool to delineate watersheds and streams. Once the tool starts to run, the users can check the status of the tool in real time by clicking on `View Details` and scrolling down to navigate to the `Messages` section to see the processes being applied.
+Depending on the raster size and your PC performance, it takes anywhere from 2-7 minutes for the tool to delineate watersheds and streams. Once the tool starts to run, the users can check the status of the tool in real time by clicking on `View Details` and scrolling down to navigate to the `Messages` section to see the geospatial processes being applied behind the scenes at that moment.
 
 Coordinate reference systems of all inputs, intermediary files and output are changed to that of the first DEM selected during the user-input stage.

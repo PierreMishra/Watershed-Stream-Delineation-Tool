@@ -28,7 +28,7 @@ if ";" not in input_raster_locations:
     input_raster = arcpy.Raster(input_raster_locations)
 
 else:    
-    # Split raster files
+    # Split raster files location if multiple DEMs provided
     split_raster = input_raster_locations.split(";")
     
     # Store coordinate reference system of the first raster and change all of them to the same CRS
@@ -47,7 +47,7 @@ else:
 
 # Check CRS of the DEM raster using its Well Known ID
 raster_CRS = arcpy.Describe(input_raster).spatialReference.factoryCode
-arcpy.env.outputCoordinateSystem = raster_CRS # to avoid an error in Fill process
+arcpy.env.outputCoordinateSystem = raster_CRS # to avoid an error in the Fill process
 
 # Fill in sinks in DEM
 arcpy.AddMessage("Filling sinks in the DEM raster...")
@@ -61,22 +61,20 @@ flow_direction = arcpy.sa.FlowDirection(fill_raster,"", "", "D8")
 arcpy.AddMessage("Generating flow accumulation based on flow direction...")
 flow_accumulation = arcpy.sa.FlowAccumulation(flow_direction)
 
-# Outlet shapefile input by user (change to user input)
-#input_outlet = "..\\data\\outlet_feature_class3.shp"
+# Outlet shapefile input by user
 input_outlet = arcpy.GetParameterAsText(1)
 
-# Change CRS of outlet feature class
+# Change CRS of outlet feature class to that of the first DEM
 arcpy.AddMessage("Changing spatial reference of outlet feature layer using DEM raster's Well-Known ID...")
 outlet_proj = arcpy.Project_management(input_outlet, "outlet_projected.shp", raster_CRS)
 arcpy.SetParameterAsText(7, outlet_proj)
 
 # If more than 1 outlet points are provided, ask user whether to aggregate watersheds into 1 polygon or keep them in separate polygons
 aggregate_watershed = arcpy.GetParameterAsText(2)
-#aggregate_watershed = False
 
 # Add a new field to determine how to handle multiple watersheds from multiple outlets  
-arcpy.DeleteField_management(outlet_proj, "AggNum")
-arcpy.AddField_management(outlet_proj, "AggNum", "SHORT")
+arcpy.DeleteField_management(outlet_proj, "AggNum") #useful if the tool is run more than once
+arcpy.AddField_management(outlet_proj, "AggNum", "SHORT") #add AggNum column to the attribute table
 field = ['AggNum']
 i = 0
 
@@ -93,41 +91,39 @@ if num_outlet > 1:
                 row[0] = i
                 cursor.updateRow(row)
     
-    # if unchecked, it will assign unique integers to each outlet feature if user does not wants to aggregate
+    # if unchecked, it will assign unique integers to each outlet feature, the value of i wil become i + 1 for each point feature
     elif aggregate_watershed == 'false':
         with arcpy.da.UpdateCursor(outlet_proj, field) as cursor:
             for row in cursor:
                 row[0] = i
                 cursor.updateRow(row)
                 i += 1
-    # Assigning unique value to each outlet point feature will make snap outlet raster of different values
-    # in the next step which will make separate watersheds 
+    # Assigning unique value to each outlet point will make snap outlet raster of different values
+    # in the next step which will make separate watershed polygons instead of one 
 
-# Snap outlet points to nearest stream pixel, outputs 1 pixel for each outlet point overlapping the pixel
-# highest flow accumulation within a specified proximity
+# Snap outlet points to the nearest stream pixel, outputs 1 pixel for each outlet point overlapping the pixel
+# having highest flow accumulation within a user-specified distance
 arcpy.AddMessage("Snapping outlet point(s) to nearest raster cell with highest flow accumulation value...")
-snap_tolerance = arcpy.GetParameterAsText(3) #snap sensitivity, assign to user
-input_outlet_snapped = arcpy.sa.SnapPourPoint(outlet_proj, flow_accumulation, snap_tolerance, "AggNum")
+snap_tolerance = arcpy.GetParameterAsText(3)
+input_outlet_snapped = arcpy.sa.SnapPourPoint(outlet_proj, flow_accumulation, snap_tolerance, "AggNum") #using AggNum to snap
 
 # Delete the unique integer field we created in outlet points feature layer
 arcpy.DeleteField_management(outlet_proj, "AggNum")
 
-# Delineate watershed based on outlet point by user input
+# Delineate watershed based on snapped outlet point and flow direction rasters
 arcpy.AddMessage("Delineating watershed based on flow direction and snapped outlet(s)...")
 watershed_raster = arcpy.sa.Watershed(flow_direction, input_outlet_snapped)
 
 # Convert watershed raster to polygon
-# make unique file names
 arcpy.AddMessage("Converting watershed raster to polygon feature...")
 watershed_polygon = arcpy.RasterToPolygon_conversion(watershed_raster,"watershed_polygon.shp")
 arcpy.SetParameterAsText(5, watershed_polygon)
 
-# Delineate stream network if x number of pixels run into 1 pixel for flow accumulation
-# may be take user input for how much x should be
+# Delineate stream network if x number of pixels run into 1 pixel for flow accumulation. User-specfied values
 arcpy.AddMessage("Delineating stream network based on user-specified inflow cells...")
 stream_net_tolerance = arcpy.GetParameterAsText(4)
 where_clause = f"VALUE > {int(stream_net_tolerance)}"
-stream_net = arcpy.sa.Con(flow_accumulation, flow_accumulation, "", where_clause)
+stream_net = arcpy.sa.Con(flow_accumulation, flow_accumulation, "", where_clause) #applying conditional statement
 
 # Assign stream order for better visuals
 arcpy.AddMessage("Assigning stream order to each stream...")

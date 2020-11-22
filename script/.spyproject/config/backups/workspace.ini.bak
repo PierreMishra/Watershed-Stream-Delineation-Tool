@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['DelineationTool.py', '..\\..\\..\\ENV859_PS4\\Scripts\\Task4.py', '..\\..\\..\\ENV859_PS4\\Scripts\\Task5.py']
+recent_files = ['DelineationTool.py']
 
