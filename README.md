@@ -41,7 +41,7 @@ If only 1 outlet point is provided, any input for this field will not affect the
 
 #### Outlet snap sensitivity
 
-Specify the distance, in map units, within which the outlet point will be snapped to the pixel with the highest flow accumulation. A default value of 50 units is set. Incrase the magnitude if you are uncertain about the proximity of your point fetures to a flowing stream.
+Specify the distance, in map units, within which the outlet point will be snapped to the pixel with the highest flow accumulation. A default value of 50 units is set. Increase the magnitude if you are uncertain about the proximity of your point features to a flowing stream.
 
 #### Stream network sensitivity
 
@@ -53,11 +53,11 @@ The tool outputs three feature layers.
 
 #### Watershed(s) 
 
-This is a feature layer containing polygon(s) of drainage basin(s) that flow into user-specified outlet(s). The symbology layer applied to watershed polygons is provided in `script` folder named `watershed_polygon.lyrx`. If the layer contains more than 1 watershed polygon, `unique value` symbology was used to assign different colors to the delineated watersheds. 
+This is a feature layer containing polygon(s) of drainage basin(s) that flow into user-specified outlet(s). The symbology layer applied to watershed polygons is provided in `script` folder named `watershed_polygon.lyrx`. If the layer contains more than 1 watershed polygon, `unique value` symbology is used to assign different colors to the delineated watersheds. 
 
 #### Stream network 
 
-This is the feature layer containing a polyline represention of the stream network. The symbology for this feature layer is located in the folder `script` named `stream_feature_clipped.lyrx`. It is a graduated symbol symbology using the `grid code` attribute which gives us the order of a stream. Higher the order of a stream, higher number of inflows from lower ordered stream flowing into it, and thicker the blue line representing the stream.
+This is the feature layer containing a polyline represention of the stream network. The symbology for this feature layer is located in the folder `script` named `stream_feature_clipped.lyrx`. It is a graduated symbol symbology using the `grid code` attribute which gives us the order of a stream. Higher the order of a stream, higher the number of inflows from a lower ordered stream flowing into it, and thicker the blue line representing the stream.
 
 #### Outlet(s)
 
@@ -69,17 +69,17 @@ The parent directory has 4 main folders that can be of interest to a user:
 
 1. `script` - This folder contains the Python script that made this tool possible. It also contains symbology layers for the output feature layers.
 
-2. `data` - This folder contains 2 sub folders `test_1` and `test_2`. The folder `test_1` contains a raster and a shapefile that can be used to test run this tool for a single DEM and outlet. The folder `test_2` contains 4 rasters and a shapefile with 3 outlet points that can be used to test run and see how this tool handles multiple DEMs and outlets. 
+2. `data` - This folder contains 2 sub folders `test_1` and `test_2`. The folder `test_1` contains a raster and a shapefile that can be used to test-run this tool for a single DEM and outlet. The folder `test_2` contains 4 rasters and a shapefile with 3 outlet points that can be used to test-run and see how this tool handles multiple DEMs and outlets. 
 
 3. `scratch` - This is the deafult workspace set in the Python script for the ArcGIS Pro environment. This folder stores the 3 output feautre layers.
 
-4. `doc` - This folder contains the thumbnail and paramter screenshots and the metadata that can be seen by hovering over question and 'i' symbols in ArcGIS Pro. The metadata is mostly taken from this README file but arranged in a format suitable for displaying metadata in ArcGIS Pro.
+4. `doc` - This folder contains the thumbnail, paramter screenshots and the metadata that can be seen by hovering over question and 'i' symbols in ArcGIS Pro. The metadata is mostly taken from this README file but arranged in a format suitable for displaying metadata in ArcGIS Pro.
 
 # How to configure ArcGIS pro to run the tool?
 
 This section is for users who are only interested in using the .py script in their projects rather than downloading the entire workspace. 
 
-* First create a parent directory and create 4 sub folders, same as mentioned in the folder organization section above. 
+* First create a parent directory and create 4 sub folders, same as mentioned in the `How are folders organized?` section above. 
 
 * Copy paste the `DeineationTool.py` python script into the `script` folder. 
 
