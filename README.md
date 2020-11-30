@@ -134,6 +134,6 @@ This section is for users who are only interested in using the .py script in the
 
 Depending on the raster size and your PC performance, it takes anywhere from 2-7 minutes for the tool to delineate watersheds and streams. Once the tool starts to run, the users can check the status of the tool in real time by clicking on `View Details` and scrolling down to navigate to the `Messages` section to see the geospatial processes being applied behind the scenes at that moment.
 
-<img src="./doc/screenshots/progress.PNG" align="center" height="100%" width="100%" > 
+<img src="./doc/screenshots/progress.PNG" align="center" height="50%" width="50%"> 
 
 Coordinate reference systems of all inputs, intermediary files and output are changed to that of the first DEM selected during the user-input stage.
