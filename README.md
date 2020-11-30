@@ -10,6 +10,8 @@ Go to this [link](https://1drv.ms/u/s!Ak8N6yOD29xEqT4ax-ypDd4LoWWj?e=NgI3S1) to 
 
 Open `Watershed-Stream-Delineation.aprx`. From the catalog pane expand `Watershed-Stream-Delineation.tbx` under `Toolboxes`. Right click on `Watershed Stream Delineation Tool`, select `Properties` and under `Script File`, make sure that the location is set to where the `DelineationTool.py` resides on your PC (`YourLocalDrive\YourFolder\Watershed-Stream-Delineation-Tool\script\DelineationTool.py`).
 
+<img src="./doc/screenshots/testRun.PNG" align="center" height="100%" width="100%" > 
+
 ## Inputs
 
 #### Elevation raster(s)
@@ -131,5 +133,7 @@ This section is for users who are only interested in using the .py script in the
 # Notes
 
 Depending on the raster size and your PC performance, it takes anywhere from 2-7 minutes for the tool to delineate watersheds and streams. Once the tool starts to run, the users can check the status of the tool in real time by clicking on `View Details` and scrolling down to navigate to the `Messages` section to see the geospatial processes being applied behind the scenes at that moment.
+
+<img src="./doc/screenshots/progress.PNG" align="center" height="100%" width="100%" > 
 
 Coordinate reference systems of all inputs, intermediary files and output are changed to that of the first DEM selected during the user-input stage.
