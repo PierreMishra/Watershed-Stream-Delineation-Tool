@@ -6,7 +6,7 @@ There are two ways in which outlet(s) (pour points) can be provided to delineate
 
 # How to use the tool?
 
-Go to this [link](https://1drv.ms/u/s!Ak8N6yOD29xEqT4ax-ypDd4LoWWj?e=NgI3S1) to download the zipped ArcGIS Pro workspace. For users who are not interested in downloading the entire workspace, refer to the section on `How to configure ArcGIS Pro to run the tool` below.   
+Go to this [link](https://1drv.ms/u/s!Ak8N6yOD29xEqT1y51ELJ1kX3Jvt?e=VkyP0x) to download the zipped ArcGIS Pro workspace. For users who are not interested in downloading the entire workspace, refer to the section on `How to configure ArcGIS Pro to run the tool` below.   
 
 Open `Watershed-Stream-Delineation.aprx`. From the catalog pane expand `Watershed-Stream-Delineation.tbx` under `Toolboxes`. Right click on `Watershed Stream Delineation Tool`, select `Properties` and under `Script File`, make sure that the location is set to where the `DelineationTool.py` resides on your PC (`YourLocalDrive\YourFolder\Watershed-Stream-Delineation-Tool\script\DelineationTool.py`). Here is a preview of the tool and a test output.
 
