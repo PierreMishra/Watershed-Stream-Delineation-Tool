@@ -114,7 +114,7 @@ This section is for users who are only interested in using the .py script in the
 
 5. Change outlet CRS: The coordinate reference system (CRS) of outlet(s) feature layer is change to the CRS of the DEM raster.
 
-6. Add an attribute to outlet feature layer: If more than a single outlet is provided, a new column is added to the attribute table of the outlet feature layer that uses a same or unique integer values to agggregate or not aggregate multiple watersheds depending on the user's choice.
+6. Add an attribute to outlet feature layer: If more than a single outlet is provided, a new column is added to the attribute table of the outlet feature layer that uses a same or unique integer values to aggregate or not aggregate multiple watersheds depending on the user's choice.
 
 7. Snap pour points: Outlet points are snapped to the nearest pixel of highest flow accumulation within a user defined distance.
 
